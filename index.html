@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Links</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* 🌈 Animated gradient */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7a00,
+    #ffd000,
+    #00ff88,
+    #00cfff,
+    #0066ff,
+    #7a00ff,
+    #ff00aa,
+    #ff4d4d,
+    #ff9900
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* 👤 Profile */
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  padding: 4px;
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 📝 Text */
+h1 {
+  margin: 10px 0 5px;
+  font-size: 26px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  font-size: 14px;
+  opacity: 0.9;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+/* 🍏 Glass buttons */
+.btn {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.4);
+
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* 🌍 Language buttons */
+.lang-switch {
+  margin-bottom: 10px;
+}
+
+.lang-switch button {
+  margin: 5px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+
+  background: rgba(255,255,255,0.25);
+  color: white;
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* 📱 Small screens */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* 💻 Large screens */
+@media (min-width: 768px) {
+  .container {
+    max-width: 500px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .btn {
+    font-size: 18px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="profile-pic">
+    <img src="https://via.placeholder.com/150" alt="profile">
+  </div>
+
+  <h1 id="title">Welcome</h1>
+  <div id="subtitle" class="subtitle">Choose your language</div>
+
+  <div class="lang-switch">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ru')">RU</button>
+    <button onclick="setLang('de')">DE</button>
+  </div>
+
+  <a id="link1" class="btn" href="#">My Website</a>
+  <a id="link2" class="btn" href="#">Instagram</a>
+  <a id="link3" class="btn" href="#">Contact</a>
+
+</div>
+
+<script>
+const content = {
+  en: {
+    title: "Welcome",
+    subtitle: "Choose your language",
+    link1: "My Website",
+    link2: "Instagram",
+    link3: "Contact"
+  },
+  ru: {
+    title: "Добро пожаловать",
+    subtitle: "Выберите язык",
+    link1: "Мой сайт",
+    link2: "Инстаграм",
+    link3: "Связаться"
+  },
+  de: {
+    title: "Willkommen",
+    subtitle: "Sprache wählen",
+    link1: "Meine Webseite",
+    link2: "Instagram",
+    link3: "Kontakt"
+  }
+};
+
+function setLang(lang) {
+  document.getElementById("title").innerText = content[lang].title;
+  document.getElementById("subtitle").innerText = content[lang].subtitle;
+  document.getElementById("link1").innerText = content[lang].link1;
+  document.getElementById("link2").innerText = content[lang].link2;
+  document.getElementById("link3").innerText = content[lang].link3;
+}
+</script>
+
+</body>
+</html>

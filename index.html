@@ -1,233 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Links</title>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Medo Tours</title>
+<link rel="icon" href="https://ik.imagekit.io/AntonMagdy/Icons/Medo%20ICO.ico" type="image/x-icon">
 <style>
-* {
-  box-sizing: border-box;
-}
+  :root{
+  --accent: rgba(255, 255, 255, 0.35); 
+  --accent-hover: rgba(255, 255, 255, 0.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  padding: 20px;
-  overflow-x: hidden;
-}
-
-/* 🌈 Animated gradient */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7a00,
-    #ffd000,
-    #00ff88,
-    #00cfff,
-    #0066ff,
-    #7a00ff,
-    #ff00aa,
-    #ff4d4d,
-    #ff9900
-  );
+  background: linear-gradient(50deg, #FF9A9E, #FAD0C4, #FFB347, #FFD194, #FFCC99, 
+    #BEE1E6, #C2E9FB, #A1C4FD, #89f7fe, #9FACE6);
   background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-  z-index: -1;
+animation: gradient 15s ease infinite;
+  height: 100vh;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: #1d4795;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px; 
 }
 
-@keyframes gradientMove {
+@keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.container {
-  text-align: center;
+  .wrap{
+    position:relative;z-index:5;width:100%;
+    max-width:360px; 
+    text-align:center;padding:36px 20px 36px;
+    zoom: 0.85; 
+    -moz-transform: scale(0.85); 
+  }
+  
+  .profile-pic{
+    width:140px;height:140px;border-radius:50%;object-fit:cover;
+    border:4px solid rgba(255,255,255,0.8);
+    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+    margin:0 auto 18px;display:block;
+  }
+
+  .links{display:flex;flex-direction:column;gap:12px;align-items:center}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
-  max-width: 420px;
-}
-
-/* 👤 Profile */
-.profile-pic {
-  width: 110px;
-  height: 110px;
-  margin: 0 auto 15px;
-  border-radius: 50%;
-  padding: 4px;
-  background: rgba(255,255,255,0.3);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-}
-
-.profile-pic img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* 📝 Text */
-h1 {
-  margin: 10px 0 5px;
-  font-size: 26px;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.7);
-}
-
-.subtitle {
-  margin-bottom: 20px;
-  font-size: 14px;
-  opacity: 0.9;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
-}
-
-/* 🍏 Glass buttons */
-.btn {
-  display: block;
-  width: 100%;
-  margin: 12px 0;
-  padding: 16px;
-  border-radius: 25px;
+  max-width: 320px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: var(--accent);
+  color: #1d4795; 
   text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  color: white;
-
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.4),
-    inset 0 1px 1px rgba(255,255,255,0.4);
-
-  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-
-  transition: all 0.3s ease;
+  font-weight: 600;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
-.btn:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.28);
+.link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+  .icon{width:22px;height:22px;flex:0 0 22px;fill:#1d4795; display: flex; align-items: center; justify-content: center;}
+  .label{flex:1;text-align:center}
 
-/* 🌍 Language buttons */
-.lang-switch {
-  margin-bottom: 10px;
-}
+.link.facebook:hover { background: rgba(24, 119, 242, 0.2); color: #1877F2; }
+.link.facebook:hover .icon { fill: #1877F2; }
+.link.location:hover { background: rgba(234, 67, 53, 0.2); color: #EA4335; }
+.link.location:hover .icon i { color: #EA4335; }
+.link.whatsapp:hover { background: rgba(37, 211, 102, 0.2); color: #25D366; }
+.link.whatsapp:hover .icon { fill: #25D366; }
+.link.tiktok:hover { background: rgba(0, 0, 0, 0.1); color: #000; }
+.link.tiktok:hover .icon { fill: #000; }
+.link.tripadvisor:hover { background: rgba(52, 224, 161, 0.2); color: #007a14; }
+.link.tripadvisor:hover svg { stroke: #007a14; }
+.link.website:hover { background: rgba(0, 176, 155, 0.1); color: #00b09b; }
+.link.website:hover .icon i { color: #00b09b; }
+.link.instagram:hover { background: rgba(228, 64, 95, 0.1); color: #E4405F; }
+.link.instagram:hover .icon i { color: #E4405F; }
+.link.phone:hover { background: rgba(52, 183, 241, 0.1); color: #34b7f1; }
+.link.phone:hover .icon i { color: #34b7f1; }
 
-.lang-switch button {
-  margin: 5px;
-  padding: 8px 14px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
+  footer.footer{margin-top:28px;color:rgba(0, 0, 0, 0.95);font-size:9px}
+  footer.footer a{color:inherit;text-decoration:underline}
 
-  background: rgba(255,255,255,0.25);
-  color: white;
-  backdrop-filter: blur(10px);
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-/* 📱 Small screens */
-@media (max-width: 400px) {
-  h1 {
-    font-size: 22px;
+  .social-icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
   }
-
-  .btn {
-    padding: 14px;
-    font-size: 15px;
-  }
+  .social-icons a {
+  color: #1d4795; 
+  font-size: 22px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-/* 💻 Large screens */
-@media (min-width: 768px) {
-  .container {
-    max-width: 500px;
-  }
+.social-icons a:hover { transform: scale(1.2); }
+.social-icons a.website:hover { color: #00b09b; }
+.social-icons a.tripadvisor:hover { color: #34E0A1; }
+.social-icons a[href*="facebook"]:hover { color: #1877F2; }
+.social-icons a.instagram:hover { color: #E4405F; }
+.social-icons a.location:hover { color: #EA4335; }
+.social-icons a[href*="tiktok"]:hover { color: #000000; }
+.social-icons a[href*="wa.me"]:hover { color: #25D366; }
+.social-icons a.phone:hover { color: #34b7f1; }
 
-  h1 {
-    font-size: 32px;
+  @media(max-width:420px){
+    .wrap{ padding-bottom:100px; zoom: 0.80; }
+    .link{max-width:90%;}
+    .profile-pic{width:120px;height:120px}
   }
-
-  .btn {
-    font-size: 18px;
-  }
+  .info-section {
+    margin-bottom: 25px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+h1 {
+    font-size: 26px; 
+    font-weight: 800;
+    color: #1d4795; 
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-size: 16px;
+    color: #444; 
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.tagline span {
+    color: #ff6a00; 
+    font-weight: 700;
+}
+
+.description {
+    font-size: 13px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    position: relative;
+}
+
+.description::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #ff6a00;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* تنسيق أزرار اللغات */
+.lang-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.lang-btn {
+    background: var(--accent);
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 5px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45px;
+    backdrop-filter: blur(5px);
+}
+.lang-btn:hover { background: var(--accent-hover); transform: translateY(-3px); }
+.lang-btn img { width: 28px; height: 18px; border-radius: 2px; object-fit: cover; }
+.lang-btn span { font-size: 9px; font-weight: bold; margin-top: 3px; color: #1d4795; }
 
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<body dir="ltr">
 
-<body>
+  <div class="wrap">
+    <img class="profile-pic" src="https://ik.imagekit.io/AntonMagdy/Profile%20Pictures/MedoLogo.jpg" alt="Medo" />
+    
+    <div class="info-section">
+        <h1 id="txt-title">Medo Tours</h1>
+        <p class="tagline" id="txt-tagline">Explore <span>Egypt</span> with MEDO</p>
+        <p class="description" id="txt-desc">Desert • Sea • History</p>
+    </div>
 
-<div class="container">
+    <!-- أزرار اللغات -->
+    <div class="lang-container">
+        <button class="lang-btn" onclick="setLang('ar')"><img src="https://flagcdn.com/w40/eg.png"><span>AR</span></button>
+        <button class="lang-btn" onclick="setLang('en')"><img src="https://flagcdn.com/w40/gb.png"><span>EN</span></button>
+        <button class="lang-btn" onclick="setLang('fr')"><img src="https://flagcdn.com/w40/fr.png"><span>FR</span></button>
+        <button class="lang-btn" onclick="setLang('de')"><img src="https://flagcdn.com/w40/de.png"><span>DE</span></button>
+        <button class="lang-btn" onclick="setLang('ru')"><img src="https://flagcdn.com/w40/ru.png"><span>RU</span></button>
+        <button class="lang-btn" onclick="setLang('it')"><img src="https://flagcdn.com/w40/it.png"><span>IT</span></button>
+        <button class="lang-btn" onclick="setLang('da')"><img src="https://flagcdn.com/w40/dk.png"><span>DA</span></button>
+        <button class="lang-btn" onclick="setLang('cs')"><img src="https://flagcdn.com/w40/cz.png"><span>CS</span></button>
+        <button class="lang-btn" onclick="setLang('pl')"><img src="https://flagcdn.com/w40/pl.png"><span>PL</span></button>
+        <button class="lang-btn" onclick="setLang('nl')"><img src="https://flagcdn.com/w40/nl.png"><span>NL</span></button>
+        <button class="lang-btn" onclick="setLang('uk')"><img src="https://flagcdn.com/w40/ua.png"><span>UK</span></button>
+    </div>
 
-  <div class="profile-pic">
-    <img src="https://via.placeholder.com/150" alt="profile">
+    <nav class="links">
+
+      <a class="link website" href="https://www.medotours.com" target="_blank">
+          <div class="icon"><i class="fas fa-globe"></i></div>
+          <span class="label" id="btn-web">Website</span>
+      </a>
+      
+      <a class="link tripadvisor" href="https://www.tripadvisor.com/Attraction_Review-g297548-d34191665-Reviews-Medo_Tours-El_Gouna_Hurghada_Red_Sea_and_Sinai.html" target="_blank">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#007a14" stroke-width="1"><path d="M6.5 13.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" /><path d="M17.5 13.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" /><path d="M17.5 9a4.5 4.5 0 1 0 3.5 1.671l1 -1.671h-4.5z" /><path d="M6.5 9a4.5 4.5 0 1 1 -3.5 1.671l-1 -1.671h4.5z" /><path d="M10.5 15.5l1.5 2l1.5 -2" /><path d="M9 6.75c2 -.667 4 -.667 6 0" /></svg>
+          </div>
+          <span class="label" id="btn-trip">Tripadvisor</span>
+      </a>
+
+      <a class="link facebook" href="https://www.facebook.com/profile.php?id=100069472747656" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.34 2 2 6.48 2 12.07c0 5 3.66 9.13 8.44 9.92v-7.03H8.07V12.07h2.37V9.88c0-2.34 1.4-3.63 3.52-3.63.99 0 2.02.18 2.02.18v2.22h-1.14c-1.12 0-1.46.69-1.46 1.4v1.67h2.49l-.4 2.89h-2.09v7.03C18.34 21.2 22 17.07 22 12.07z" /></svg>
+        <span class="label" id="btn-fb">Facebook</span>
+      </a>
+
+      <a class="link instagram" href="https://www.instagram.com/medotours_transfer_services/" target="_blank" rel="noopener noreferrer">
+        <div class="icon"><i class="fab fa-instagram"></i></div>
+        <span class="label" id="btn-ig">Instagram</span>
+      </a>
+
+      <a class="link location" href="https://maps.app.goo.gl/ETXjs9Yd7d36pFRs7?g_st=aw" target="_blank" rel="noopener noreferrer">
+        <div class="icon"><i class="fas fa-location-dot"></i></div>
+        <span class="label" id="btn-loc">Location</span>
+      </a>
+
+      <a class="link tiktok" href="https://www.tiktok.com/@medotours" target="_blank">
+        <svg class="icon" viewBox="0 0 256 256"><path d="M236.8 81.3a56.7 56.7 0 0 1-33-10.6 56.8 56.8 0 0 1-23-45.9h-28.2v132.9a32.5 32.5 0 1 1-32.5-32.5 31.8 31.8 0 0 1 6.6.7v-29a62.8 62.8 0 0 0-6.6-.3 61.5 61.5 0 1 0 61.5 61.5v-64.7a85 85 0 0 0 50.7 16.5V81.3z"/></svg>
+        <span class="label" id="btn-tk">TikTok</span>
+      </a>
+
+      <a class="link whatsapp" href="https://wa.me/+201104385272" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-whatsapp icon" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+        <span class="label" id="btn-wa">WhatsApp</span>
+      </a>
+
+      <a class="link phone" href="tel:+201104385272">
+        <div class="icon"><i class="fas fa-phone"></i></div>
+        <span class="label" id="btn-call">Call Us</span>
+      </a>
+
+    </nav>
+
+    <div class="social-icons">
+        <a href="https://www.medotours.com" target="_blank" class="website" title="Website"><i class="fas fa-globe"></i></a>
+        <a href="https://www.tripadvisor.com/Attraction_Review-g297548-d34191665-Reviews-Medo_Tours-El_Gouna_Hurghada_Red_Sea_and_Sinai.html" target="_blank" class="tripadvisor" title="Tripadvisor">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.5 13.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" /><path d="M17.5 13.5m-1.5 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0" /><path d="M17.5 9a4.5 4.5 0 1 0 3.5 1.671l1 -1.671h-4.5z" /><path d="M6.5 9a4.5 4.5 0 1 1 -3.5 1.671l-1 -1.671h4.5z" /><path d="M10.5 15.5l1.5 2l1.5 -2" /><path d="M9 6.75c2 -.667 4 -.667 6 0" /></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100069472747656" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/medotours_transfer_services/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://maps.app.goo.gl/ETXjs9Yd7d36pFRs7?g_st=aw" target="_blank"><i class="fas fa-location-dot"></i></a>
+        <a href="https://www.tiktok.com/@medotours" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/+201104385272" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+201104385272"><i class="fas fa-phone"></i></a>
+    </div>
+
+	<footer class="footer">
+	  <p>© <span id="year"></span> Anton Design</p>
+	  <p><a href="https://wa.me/+201281358100" target="_blank">Contact Creator</a></p>
+	</footer>
   </div>
-
-  <h1 id="title">Welcome</h1>
-  <div id="subtitle" class="subtitle">Choose your language</div>
-
-  <div class="lang-switch">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('ru')">RU</button>
-    <button onclick="setLang('de')">DE</button>
-  </div>
-
-  <a id="link1" class="btn" href="#">My Website</a>
-  <a id="link2" class="btn" href="#">Instagram</a>
-  <a id="link3" class="btn" href="#">Contact</a>
-
-</div>
 
 <script>
-const content = {
-  en: {
-    title: "Welcome",
-    subtitle: "Choose your language",
-    link1: "My Website",
-    link2: "Instagram",
-    link3: "Contact"
-  },
-  ru: {
-    title: "Добро пожаловать",
-    subtitle: "Выберите язык",
-    link1: "Мой сайт",
-    link2: "Инстаграм",
-    link3: "Связаться"
-  },
-  de: {
-    title: "Willkommen",
-    subtitle: "Sprache wählen",
-    link1: "Meine Webseite",
-    link2: "Instagram",
-    link3: "Kontakt"
-  }
+const translations = {
+    ar: {
+        title: "ميدو تورز", tagline: "استكشف <span>مصر</span> مع ميدو", desc: "صحراء • بحر • تاريخ",
+        web: "الموقع الإلكتروني", trip: "تريب أدفيزور", fb: "فيسبوك", ig: "إنستغرام", loc: "موقعنا", tk: "تيك توك", wa: "واتساب", call: "اتصل بنا", dir: "rtl"
+    },
+    en: {
+        title: "Medo Tours", tagline: "Explore <span>Egypt</span> with MEDO", desc: "Desert • Sea • History",
+        web: "Website", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Location", tk: "TikTok", wa: "WhatsApp", call: "Call Us", dir: "ltr"
+    },
+    fr: {
+        title: "Medo Tours", tagline: "Explorez l'<span>Égypte</span>", desc: "Désert • Mer • Histoire",
+        web: "Site Web", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Emplacement", tk: "TikTok", wa: "WhatsApp", call: "Appelez-nous", dir: "ltr"
+    },
+    de: {
+        title: "Medo Tours", tagline: "Erkunde <span>Ägypten</span>", desc: "Wüste • Meer • Geschichte",
+        web: "Webseite", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Standort", tk: "TikTok", wa: "WhatsApp", call: "Anrufen", dir: "ltr"
+    },
+    ru: {
+        title: "Медо Турс", tagline: "Исследуйте <span>Египет</span>", desc: "Пустыня • Море • История",
+        web: "Веб-сайт", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Расположение", tk: "TikTok", wa: "WhatsApp", call: "Позвонить", dir: "ltr"
+    },
+    it: {
+        title: "Medo Tours", tagline: "Esplora l'<span>Egitto</span>", desc: "Deserto • Mare • Storia",
+        web: "Sito Web", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Posizione", tk: "TikTok", wa: "WhatsApp", call: "Chiamaci", dir: "ltr"
+    },
+    da: {
+        title: "Medo Tours", tagline: "Udforsk <span>Egypten</span>", desc: "Ørken • Hav • Historie",
+        web: "Hjemmeside", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Beliggenhed", tk: "TikTok", wa: "WhatsApp", call: "Ring os", dir: "ltr"
+    },
+    cs: {
+        title: "Medo Tours", tagline: "Prozkoumejte <span>Egypt</span>", desc: "Poušť • Moře • Historie",
+        web: "Webová stránka", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Poloha", tk: "TikTok", wa: "WhatsApp", call: "Zavolejte nám", dir: "ltr"
+    },
+    pl: {
+        title: "Medo Tours", tagline: "Odkryj <span>Egipt</span>", desc: "Pustynia • Morze • Historia",
+        web: "Strona WWW", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Lokalizacja", tk: "TikTok", wa: "WhatsApp", call: "Zadzwoń", dir: "ltr"
+    },
+    nl: {
+        title: "Medo Tours", tagline: "Ontdek <span>Egypte</span>", desc: "Woestijn • Zee • Historie",
+        web: "Website", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Locatie", tk: "TikTok", wa: "WhatsApp", call: "Bellen", dir: "ltr"
+    },
+    uk: {
+        title: "Медо Турс", tagline: "Досліджуйте <span>Єгипет</span>", desc: "Пустеля • Море • Історія",
+        web: "Веб-сайт", trip: "Tripadvisor", fb: "Facebook", ig: "Instagram", loc: "Локація", tk: "TikTok", wa: "WhatsApp", call: "Зателефонуйте", dir: "ltr"
+    }
 };
 
 function setLang(lang) {
-  document.getElementById("title").innerText = content[lang].title;
-  document.getElementById("subtitle").innerText = content[lang].subtitle;
-  document.getElementById("link1").innerText = content[lang].link1;
-  document.getElementById("link2").innerText = content[lang].link2;
-  document.getElementById("link3").innerText = content[lang].link3;
+    const data = translations[lang];
+    document.getElementById('txt-title').innerText = data.title;
+    document.getElementById('txt-tagline').innerHTML = data.tagline;
+    document.getElementById('txt-desc').innerText = data.desc;
+    document.getElementById('btn-web').innerText = data.web;
+    document.getElementById('btn-trip').innerText = data.trip;
+    document.getElementById('btn-fb').innerText = data.fb;
+    document.getElementById('btn-ig').innerText = data.ig;
+    document.getElementById('btn-loc').innerText = data.loc;
+    document.getElementById('btn-tk').innerText = data.tk;
+    document.getElementById('btn-wa').innerText = data.wa;
+    document.getElementById('btn-call').innerText = data.call;
+    document.body.dir = data.dir;
 }
-</script>
 
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
